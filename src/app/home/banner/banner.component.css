@@ -1,5 +1,5 @@
 .home-page-banner{
-    background-color: #28282B;
+    background-color: black;
     padding: 100px 50px;
     height: 100vh;
 }
@@ -24,7 +24,7 @@
     height: 38px;
     border: none;
     margin-left: 5px;
-    background-color: #FF5733;
+    background-color: #ba2a0a;
     color: white;
 }
 h1, p{

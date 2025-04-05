@@ -5,6 +5,7 @@ assets/
 babel.config.json
 webpack.config.json
 webpack.stats.json
+.angular/
 
 Notes/
 Notes.txt

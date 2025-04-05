@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
 import { Course } from '../Models/course';
 import { CourseService } from '../Services/course.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Constants } from '../constants/data.constants';
 
 @Component({
@@ -14,6 +14,7 @@ export class CoursesComponent implements OnInit {
   coursesService = inject(CourseService);
   constants: Constants = inject(Constants);
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
+  router: Router = inject(Router);
 
   public description:string = this.constants.courseDesc;
   // public description:string = '';
@@ -71,6 +72,7 @@ export class CoursesComponent implements OnInit {
     
   }
 
+  //search result from route query params 
   populateCoursesFromSearch(searchQuery: string) {
     const allCourses = JSON.parse(JSON.stringify(this.coursesService.courses));
     this.displayCourses = allCourses.filter(courses => courses.title.toLowerCase().includes(searchQuery.toLowerCase())) || [];
@@ -97,6 +99,12 @@ export class CoursesComponent implements OnInit {
   //it is usefule when we are comming from parent/home component that initiates ngOnInit.
   
   //But for internal routeLink change, we use queryParms without snapshot and we can subscribe it
+
+
+  //todo
+  // goToPopular(): void {
+  //   this.router.navigate()
+  // }
 
 
 

@@ -13,7 +13,7 @@
       <button class="search-button" (click)="OnSearchClicked(searchVar.value)">Search Courses</button>
     </div>
     <div class="banner-footer">
-      <!-- use routerlink="." or [routerLink]="['.']" while routing to fragments on same component -->
+      <!-- use routerlink="." or [routerLink]="['.']", where fragment="<id of the dome element>" while routing to fragments on same component -->
       <a routerLink="." fragment="courses">Popular</a>
       <a routerLink="." fragment="testimony">Testimony</a>
       <a routerLink="." fragment="services">Services</a>

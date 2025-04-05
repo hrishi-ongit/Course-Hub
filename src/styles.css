@@ -10,7 +10,9 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: #FBFCFC;
 }
-
+a{
+    cursor: pointer;
+}
 .active{
     font-size: 18px;
     font-weight: bold;
