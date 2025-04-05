@@ -1,6 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-assets/
+# assets/ >> commiting this file for netlify deployment 
 
 babel.config.json
 webpack.config.json
