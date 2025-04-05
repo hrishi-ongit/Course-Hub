@@ -1,0 +1,55 @@
+<div class="page-header">
+  <!--HOME HEADER-->
+  <div class="page-header-logo">
+    <h2>Coders Hub</h2>
+  </div>
+  <div>
+    <div class="page-header-secondary">
+
+    </div>
+    <div class="page-header-primary">
+      <div class="page-header-primary-nav">
+        <!-- Statick links which are inactive -->
+        <!-- <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Cources</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a> -->
+        
+
+        <!-- Spicifying the href for navigating to respective page/cpmponent -->
+        <!-- This is not ideal as it causes page load for each navigation and requests the server to send the page,
+         All the bundle files are again downloaded
+        it restarts the application, state or data may be lossed -->
+        <!-- <a href="Home">Home</a>
+        <a href="Services">Services</a>
+        <a href="Courses">Courses</a>
+        <a href="Contact">Contact</a>
+        <a href="About">About</a> -->
+
+
+        <!-- Using Attribute directive - Roiuter link -->
+        <!-- <a routerLink="string">HOME</a> or <a [routerLink]="'Home'">HOME</a> -->
+        <!-- routerLinkActive is directive which gives boolean state of route and is used to style the class ex. highlight when active -->
+        <!-- [routerLinkActiveOptions]="{exact:true}" for applying css class strictly for the matched route -->
+
+        <!-- routerLink="Home" >> relative path, appended to the currently active route
+          ex. if in 'About', we have 'Email' section then, url = localhost:4200/About/Email    
+        -->
+
+        <!-- routerLink="/Home" >> absolute path, directly appended to root url Ex. url = localhost:4200/Email  -->
+
+        <a class="nav-link" routerLink="Home" routerLinkActive="active">HOME</a>
+        <a class="nav-link" routerLink="Courses" routerLinkActive="active">Courses</a>
+        <a class="nav-link" routerLink="Services" routerLinkActive="active">Services</a>
+        <a class="nav-link" [routerLink]="'Contact'" routerLinkActive="active">CONTACT</a>
+        <a class="nav-link" [routerLink]="'About'" [routerLinkActive]="'active'">ABOUT</a>
+      </div>
+      <div class="page-header-login-logout">
+        <a routerLink="/Login">LOGIN</a>
+        <a routerLink="/Login" [queryParams]="{logout: true}">LOGOUT</a>
+      </div>
+    </div>
+
+  </div>
+</div>

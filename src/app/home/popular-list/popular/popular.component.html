@@ -1,0 +1,19 @@
+<div *ngIf="popular" class="course-card">
+    <div class="course-image">
+        <img [src]="popular.image">
+    </div>
+    <div class="course-title">
+        {{ popular.title }}
+    </div>
+    <div class="course-desc">
+        {{ popular.desc.substring(0, 120) }}
+    </div>
+    <div class="course-price-rating">
+        <div class="course-price"><b>PRICE:</b> {{ popular.price | currency }}</div>
+        <div class="course-rating"><b>RATINGS:</b> {{ popular.rating }}</div>
+    </div>
+    <div class="course-action-buttons">
+        <button class="btn">BUY NOW</button>
+        <button class="btn" [routerLink]="'/Home/Courses/Course/'+popular.id" >DETAILS</button>
+    </div>
+</div>

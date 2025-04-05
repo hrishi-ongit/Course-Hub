@@ -1,0 +1,22 @@
+<div class="home-page-container">
+    <section id="search">
+      <app-banner (courseSearch)="courseSearchReceived($event)"></app-banner>
+    </section>
+
+    <section id="courses">
+      <app-popular></app-popular>
+       <app-popular-list [courseSearch]="courseSearched" ></app-popular-list>
+    </section>
+
+    <section id="testimony">
+      <app-testimony></app-testimony>
+    </section>
+
+    <section id="services">
+      <app-services></app-services>
+    </section>
+
+    <section id="contact">
+        <app-contact-us></app-contact-us>
+    </section>
+  </div>

@@ -1,0 +1,44 @@
+<div class="courses-page-main-container">
+    <div class="courses-banner">
+        <div class="courses-banner-layover">
+            <h1 class="course-text">Below are some of the popular courses available on internet, both free as well as paid. We enlist different types of course specifically those, which community follow and like the most so that you can get the right pick without much hustle to digging on internet</h1>
+        </div>
+    </div>
+    <div class="courses-page-all-courses">
+        <div class="course-page-banner-search">
+            <!-- <h2>Choose the course best suits you</h2> -->
+            <span class="search-bar">
+                <input type="text" class="course-search-input" placeholder="Filter course by name" #searchVar>
+                <!-- <button class="search-button" [routerLink]="'/Courses'" (click)="OnSearchClicked(searchVar.value)">Search Courses</button> -->
+                <button class="course-search-button" (click)="OnSearchClicked(searchVar.value)">Search</button>
+            </span>
+        </div>
+        <hr>
+        <div class="courses-page-course-list">
+            <div class="course-card" *ngFor="let course of displayCourses">
+                <div class="course-image">
+                    <img [src]="course.image">
+                </div>
+                <div class="course-title">
+                    {{ course.title }}
+                </div>
+                <div class="course-desc">
+                    {{ course.desc.substring(0, 120) }}
+                </div>
+                <div class="course-price-rating">
+                    <div class="course-price"><b>PRICE:</b> {{ course.price | currency }}</div>
+                    <div class="course-rating"><b>RATINGS:</b> {{ course.rating }}</div>
+                </div>
+                <div class="course-action-buttons">
+                    <button class="btn" >BUY NOW</button>
+                    <!-- use relative path like from Course which will append to current ..Courses/Course/id-->
+                    <button class="btn" [routerLink]="'Course/' + course.id" >DETAILS</button>
+                     <!-- Absolute path below that appends on base url like ..4200:/Courses/Course/id-->
+                    <!-- <button class="btn" [routerLink]="'/Courses/Course/' + course.id" >DETAILS</button>  -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <a routerLink="/Courses" [queryParams]="{search: 'JavaScript'}">Show JavaScript Courses</a> -->
+     <a [routerLink]="'/Courses'" [queryParams]="{'search' : 'javascript'}">Show Popular Courses</a>
+</div>
