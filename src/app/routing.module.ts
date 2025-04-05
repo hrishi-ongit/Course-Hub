@@ -12,6 +12,7 @@ import { CheckoutComponent } from "./checkout/checkout.component";
 import { AuthGuardService } from "./Services/authguard.service";
 import { CanActivate, CanActivateChild, resolve } from "./auth.guard";
 import { ServicesComponent } from "./home/services/services.component";
+import { PopularListComponent } from "./home/popular-list/popular-list.component";
 
 //DEFINE ROUTE
 const routes: Routes = [
@@ -21,7 +22,11 @@ const routes: Routes = [
   { path: "About", component: AboutComponent }, 
   { path: "Contact", component: ContactComponent},
   { path: "Courses", component: CoursesComponent},
-  { path : 'Courses/Course/:id', component: CourseDetailComponent},
+  // { path : 'Courses/Course/:id', component: CourseDetailComponent}, //below is another way i.e using child route 
+  { path: 'Courses', children: [
+    { path: 'Course/:id', component: CourseDetailComponent},
+    { path: 'Popular', component: PopularListComponent}
+  ]},
   { path : 'Home/Courses/Course/:id', component: CourseDetailComponent},
   // { path : 'Courses/Course/:id/:name'},
   { path: "Services", component: ServicesComponent},

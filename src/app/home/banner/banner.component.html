@@ -7,25 +7,23 @@
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
     </div>
-    <div class="home-page-action-section">
-      <div class="banner-footer">
-        <!-- use routerlink="." or [routerLink]="['.']" while routing to fragments on same component -->
-        <a routerLink="." fragment="courses">Popular</a>
-        <a routerLink="." fragment="testimony">Testimony</a>
-        <a routerLink="." fragment="services">Services</a>
-        <a routerLink="." fragment="contact">Contact</a>
-  
-        <!-- Or absolute path as well works -->
-  
-        <!-- <a routerLink="/Home" fragment="courses">Popular</a>
-        <a routerLink="/Home" fragment="testimony">Testimony</a>
-        <a routerLink="/Home" fragment="services">Services</a>
-        <a routerLink="/Home" fragment="contact">Contact</a> -->
-      </div>
-      <div class="home-page-banner-search">
-        <input type="text" class="search-input" placeholder="Search Courses" #searchVar>
-        <!-- <button class="search-button" (click)="OnSearchClicked(searchVar.value)">Search Courses</button> -->
-        <button class="search-button" (click)="OnSearchClicked(searchVar.value)">Search Courses</button>
-      </div>
+    <div class="home-page-banner-search">
+      <input type="text" class="search-input" placeholder="Search Courses" #searchVar>
+      <!-- <button class="search-button" (click)="OnSearchClicked(searchVar.value)">Search Courses</button> -->
+      <button class="search-button" (click)="OnSearchClicked(searchVar.value)">Search Courses</button>
+    </div>
+    <div class="banner-footer">
+      <!-- use routerlink="." or [routerLink]="['.']", where fragment="<id of the dome element>" while routing to fragments on same component -->
+      <a routerLink="." fragment="courses">Popular</a>
+      <a routerLink="." fragment="testimony">Testimony</a>
+      <a routerLink="." fragment="services">Services</a>
+      <a routerLink="." fragment="contact">Contact</a>
+
+      <!-- Or absolute path as well works -->
+
+      <!-- <a routerLink="/Home" fragment="courses">Popular</a>
+      <a routerLink="/Home" fragment="testimony">Testimony</a>
+      <a routerLink="/Home" fragment="services">Services</a>
+      <a routerLink="/Home" fragment="contact">Contact</a> -->
     </div>
 </div>
