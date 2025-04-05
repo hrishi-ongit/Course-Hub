@@ -10,13 +10,13 @@
     flex-wrap: wrap;
     margin-bottom: 100px;
     /* background-color: white; */
-    background-color: black;
+    /* background-color: black; */
 }
 
 .home-page-service-card{
     padding: 10px 25px;
     width: 280px;
-    border: #28282B 1px solid;
+    /* border: #28282B 1px solid; */
     margin: 10px 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
