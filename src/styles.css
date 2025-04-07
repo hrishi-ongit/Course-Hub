@@ -6,6 +6,11 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+html {
+scroll-behavior: smooth;
+}
+  
 body{
     font-family: 'Poppins', sans-serif;
     background-color: #FBFCFC;

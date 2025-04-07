@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { IDeactivateComponent } from '../Services/authguard.service';
+// import { IDeactivateComponent } from '../Services/authguard.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements IDeactivateComponent {
+// export class ContactComponent implements IDeactivateComponent {
+  export class ContactComponent {
   firstName: string = '';
   lastName: string = '';
   country: string = 'usa';
