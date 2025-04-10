@@ -13,6 +13,7 @@ import { CheckoutComponent } from "./checkout/checkout.component";
 import { ServicesComponent } from "./home/services/services.component";
 import { PopularListComponent } from "./home/popular-list/popular-list.component";
 import { AuthGuardService } from "./Services/authguard.service";
+import { canActivate } from "./auth.guard";
 
 //DEFINE ROUTE
 const routes: Routes = [
@@ -26,7 +27,9 @@ const routes: Routes = [
   { path: 'Courses', children: [
     { path: 'Course/:id', component: CourseDetailComponent},
     { path: 'Popular', component: PopularListComponent},
-    { path: 'Checkout', component: CheckoutComponent, canActivate: [AuthGuardService]}
+    // { path: 'Checkout', component: CheckoutComponent, canActivate: [AuthGuardService]} - route guard for Ang14 and below
+    // { path: 'Checkout', component: CheckoutComponent, canActivate: [() => {return true}]}//hardcoded
+    { path: 'Checkout', component: CheckoutComponent, canActivate: [canActivate]}//new way 
   ]},
   { path : 'Home/Courses/Course/:id', component: CourseDetailComponent},
   // { path : 'Courses/Course/:id/:name'},
