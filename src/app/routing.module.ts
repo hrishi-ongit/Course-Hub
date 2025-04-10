@@ -9,10 +9,10 @@ import { CourseDetailComponent } from "./courses/course-detail/course-detail.com
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { LoginComponent } from "./login/login.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
-import { AuthGuardService } from "./Services/authguard.service";
-import { CanActivate, CanActivateChild, resolve } from "./auth.guard";
+// import { CanActivate, CanActivateChild, resolve } from "./auth.guard";
 import { ServicesComponent } from "./home/services/services.component";
 import { PopularListComponent } from "./home/popular-list/popular-list.component";
+import { AuthGuardService } from "./Services/authguard.service";
 
 //DEFINE ROUTE
 const routes: Routes = [
@@ -25,7 +25,8 @@ const routes: Routes = [
   // { path : 'Courses/Course/:id', component: CourseDetailComponent}, //below is another way i.e using child route 
   { path: 'Courses', children: [
     { path: 'Course/:id', component: CourseDetailComponent},
-    { path: 'Popular', component: PopularListComponent}
+    { path: 'Popular', component: PopularListComponent},
+    { path: 'Checkout', component: CheckoutComponent, canActivate: [AuthGuardService]}
   ]},
   { path : 'Home/Courses/Course/:id', component: CourseDetailComponent},
   // { path : 'Courses/Course/:id/:name'},
@@ -53,12 +54,15 @@ const routes: Routes = [
   //     { path: "checkout", component: CheckoutComponent },
   //   ],
   // },
-  { path: "Login", component: LoginComponent },
+  { path: 'Login', component: LoginComponent},
   { path: "**", component: NotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+  })],
   exports: [RouterModule],
 })
 export class RoutingModule {}

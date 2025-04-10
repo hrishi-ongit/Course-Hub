@@ -13,7 +13,7 @@
         <div class="course-rating"><b>RATINGS:</b> {{ popular.rating }}</div>
     </div>
     <div class="course-action-buttons">
-        <button class="btn">BUY NOW</button>
+        <button class="btn" routerLink="/Courses/Checkout">BUY NOW</button>
         <button class="btn" [routerLink]="'/Home/Courses/Course/'+popular.id" >DETAILS</button>
     </div>
 </div>
