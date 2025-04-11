@@ -15,22 +15,9 @@ export const canActivate = () => {
     }
 }
 
-
-
-
-
-// export const CanActivate = () => {
-//     const authService = inject(AuthService);
-//     const router = inject(Router);
-
-//     if(authService.IsAuthenticated()){
-//         return true;
-//     }
-//     else{
-//         router.navigate(['/Login']);
-//         return false;
-//     }
-// }
+export const canActivateChild = () => {
+    return canActivate(); // reusing above function for canActivateChild function
+}
 
 // export const CanActivateChild = () => {
 //     return CanActivate();

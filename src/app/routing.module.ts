@@ -23,14 +23,22 @@ const routes: Routes = [
   { path: "About", component: AboutComponent }, 
   { path: "Contact", component: ContactComponent},
   { path: "Courses", component: CoursesComponent},
-  // { path : 'Courses/Course/:id', component: CourseDetailComponent}, //below is another way i.e using child route 
-  { path: 'Courses', children: [
-    { path: 'Course/:id', component: CourseDetailComponent},
-    { path: 'Popular', component: PopularListComponent},
-    // { path: 'Checkout', component: CheckoutComponent, canActivate: [AuthGuardService]} - route guard for Ang14 and below
-    // { path: 'Checkout', component: CheckoutComponent, canActivate: [() => {return true}]}//hardcoded
-    { path: 'Checkout', component: CheckoutComponent, canActivate: [canActivate]}//new way 
-  ]},
+
+      //1. { path : 'Courses/Course/:id', component: CourseDetailComponent}, 
+      //2. //below is another way i.e using child route 
+      { path: 'Courses', children: [
+        { path: 'Course/:id', component: CourseDetailComponent},
+        { path: 'Popular', component: PopularListComponent},
+
+        //3.route guard for Ang14 and below
+        // { path: 'Checkout', component: CheckoutComponent, canActivate: [AuthGuardService]} 
+
+        // 4.route guard for new versions (14+)
+        // { path: 'Checkout', component: CheckoutComponent, canActivate: [() => {return true}]}//hardcoded
+        { path: 'Checkout', component: CheckoutComponent, canActivate: [canActivate]}//new way 
+      ]},
+      // If we want to protect all child members of a parent route, we can use canActivateChild, that returns boolean as same above
+  
   { path : 'Home/Courses/Course/:id', component: CourseDetailComponent},
   // { path : 'Courses/Course/:id/:name'},
   { path: "Services", component: ServicesComponent},
