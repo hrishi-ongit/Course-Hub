@@ -13,7 +13,7 @@ import { CheckoutComponent } from "./checkout/checkout.component";
 import { ServicesComponent } from "./home/services/services.component";
 import { PopularListComponent } from "./home/popular-list/popular-list.component";
 import { AuthGuardService } from "./Services/authguard.service";
-import { canActivate, CanActivateChild,  } from "./auth.guard";
+import { canActivate, canActivateChild } from "./auth.guard";
 
 //DEFINE ROUTE
 const routes: Routes = [
@@ -26,7 +26,7 @@ const routes: Routes = [
 
       //1. { path : 'Courses/Course/:id', component: CourseDetailComponent}, 
       //2. //below is another way i.e using child route 
-      { path: 'Courses', canActivateChild: [CanActivateChild], children: [
+      { path: 'Courses', canActivateChild: [canActivateChild], children: [
         { path: 'Course/:id', component: CourseDetailComponent},
         { path: 'Popular', component: PopularListComponent},
 
