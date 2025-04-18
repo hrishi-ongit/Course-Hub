@@ -19,9 +19,9 @@ export const canActivateChild = () => {
     return canActivate(); // reusing above function for canActivateChild function
 }
 
-// export const CanActivateChild = () => {
-//     return CanActivate();
-// }
+export const CanActivateChild = () => {
+    return canActivate();
+}
 
 // export const resolve = () =>{
 //     const courseService = inject(CourseService);
