@@ -19,6 +19,8 @@ export class SharedService {
       // map((courses: Course[]) => {
       //   return courses.filter(course => course.title.toLowerCase().includes(queryString));
       // }) or..
+      // map((courses: Course[]) => (courses.filter(course => course.title.toLowerCase().includes(searchString.toLowerCase()))))
+      //  or..
       map((courses: Course[]) => courses.filter(course => course.title.toLowerCase().includes(searchString.toLowerCase())))
     );
   }
