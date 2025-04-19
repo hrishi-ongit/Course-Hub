@@ -31,7 +31,7 @@
                     <div class="course-rating"><b>RATINGS:</b> {{ course.rating }}</div>
                 </div>
                 <div class="course-action-buttons">
-                    <button class="btn" routerLink="/Courses/Checkout">BUY NOW</button>
+                    <button class="btn" routerLink="/Courses/Checkout" [state]="course">BUY NOW</button>
                     <!-- use relative path like from Course which will append to current ..Courses/Course/id-->
                     <button class="btn" [routerLink]="'Course/' + course.id" >DETAILS</button>
                      <!-- Absolute path below that appends on base url like ..4200:/Courses/Course/id-->

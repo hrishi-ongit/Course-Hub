@@ -10,14 +10,19 @@ import { Course } from '../Models/course';
 export class CheckoutComponent {
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
   router: Router = inject(Router);
-  course;
+  public course: any;
 
   ngOnInit(){
+    //accessing static hardcoded data passed on route 
     // this.activeRoute.data.subscribe((data) => {
+    //   console.log(data);
     //   this.course = data;
     // })
 
-    //this.course = this.router.getCurrentNavigation().extras.state;
+    //dynamically..
     this.course = history.state;
+
+    //this.course = this.router.getCurrentNavigation().extras.state;//some issue here
+    // this.course = history.state;
   }
 }
