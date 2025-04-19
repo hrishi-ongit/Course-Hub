@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, inject } from '@angular/core';
 import { Course } from '../Models/course';
 import { CourseService } from '../Services/course.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { JsonPipe } from '@angular/common';
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.css']
 })
-export class CoursesComponent implements OnInit {
+export class CoursesComponent implements OnInit, OnDestroy {
 
   coursesService = inject(CourseService);
   constants: Constants = inject(Constants);
@@ -73,7 +73,8 @@ export class CoursesComponent implements OnInit {
   // Here we are using resolve route guard that already loads the data before routing
 
     this.AllCourses = this.activeRoute.snapshot.data['courses'];
-    this.displayCourses = JSON.parse(JSON.stringify(this.AllCourses));  
+    this.displayCourses = this.sharedService.allCourses = JSON.parse(JSON.stringify(this.AllCourses));
+    this.sharedService.displayedCoursesLength = this.displayCourses.length;  
 
   }
 
@@ -96,10 +97,12 @@ export class CoursesComponent implements OnInit {
   OnSearchClicked(searchString: string) {
     if(!searchString || searchString == ''){
       this.displayCourses = JSON.parse(JSON.stringify(this.AllCourses))
+      this.sharedService.displayedCoursesLength = this.displayCourses.length
     } 
     else {
       let allCourses = JSON.parse(JSON.stringify(this.AllCourses));
       this.displayCourses = allCourses.filter(course => course.title.toLowerCase().includes(searchString.toLowerCase()));
+      this.sharedService.displayedCoursesLength = this.displayCourses.length
     }
   }
 
@@ -117,6 +120,10 @@ export class CoursesComponent implements OnInit {
   // goToPopular(): void {
   //   this.router.navigate()
   // }
+
+  ngOnDestroy(): void {
+    // this.sharedService.displayedCoursesLength = 0;
+  }
 
 
 }

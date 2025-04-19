@@ -2,6 +2,7 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/Services/course.service';
 import { ActivatedRoute } from '@angular/router';
 import { CourseType } from 'src/app/interface/shared.interface';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -17,6 +18,7 @@ export class CourseDetailComponent implements OnInit {
   totalCourses: number;
   courseService: CourseService = inject(CourseService);
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
+  sharedService: SharedService = inject(SharedService);
   
   
   ngOnInit(): void {
@@ -37,10 +39,10 @@ export class CourseDetailComponent implements OnInit {
     // })
 
     //using paramMap observable
-    this.totalCourses = this.courseService.courses.length;
+    this.totalCourses = this.sharedService.displayedCoursesLength || 0;
     this.activeRoute.paramMap.subscribe((data)=>{
       this.courseId = +data.get('id') //converting string to number
-      this.selectedCourse = this.courseService.courses.find(course => course.id === this.courseId) || undefined;  
+      this.selectedCourse = this.sharedService.allCourses.find(course => course.id === this.courseId) || undefined;  
     })
     
   }
