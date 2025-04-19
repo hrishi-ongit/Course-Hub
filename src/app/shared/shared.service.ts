@@ -9,6 +9,8 @@ import { CourseService } from '../Services/course.service';
 export class SharedService {
   private courseService = inject(CourseService);
   constructor() { }
+  public displayedCoursesLength: number = 0;
+  public allCourses: Course[] = [];
 
   public getAllCourses(): Observable<Course[]> {
     return this.courseService.getAllcourses();
