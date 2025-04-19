@@ -40,63 +40,49 @@ export class CoursesComponent implements OnInit {
     //   this.populateCoursesFromSearch(this.searchQueryString);
     // })
     
+
     //new :- 
-    this.activeRoute.queryParamMap.subscribe((value) => {
-      this.searchQueryString = value.get('search');
-    })
+    // this.activeRoute.queryParamMap.subscribe((value) => {
+    //   this.searchQueryString = value.get('search');
+    // })
 
     //with snapshot/queryParams/queryParamMap, get the search param in routr 
     // (if used query in url..defined or just navigation ..undefined, based on such below code)
-    //When no query (direct navigation/course page load, load all courses displayCourses)
-    if(this.searchQueryString === undefined || this.searchQueryString === '' || this.searchQueryString === null){
-       this.sharedService.getAllCourses().subscribe((res) => {
-        this.AllCourses = res;
-        this.displayCourses = JSON.parse(JSON.stringify(this.AllCourses));
-      })
-    }
-    //for query search in route url..
-    else {
-      this.populateCoursesFromSearch(this.searchQueryString);
-    }
+    //When no query (direct navigation/course page load, load all courses displayCourses) :-
+
+    // if(this.searchQueryString === undefined || this.searchQueryString === '' || this.searchQueryString === null){
+    //    this.sharedService.getAllCourses().subscribe((res) => {
+    //     this.AllCourses = res;
+    //     this.displayCourses = JSON.parse(JSON.stringify(this.AllCourses));
+    //   })
+    // }
+
+    //for query search in route url.. :-
+
+    // else {
+    // filtered search for url query params search without resolver fun route guard 
+    //   this.populateCoursesFromSearch(this.searchQueryString);
+    // }
 
 
-    // this.displayCourses = JSON.parse(JSON.stringify(this.AllCourses));
-    // this.searchString = this.activeRoute.snapshot.queryParams['search'];
-    // this.searchString = this.activeRoute.snapshot.queryParamMap.get('search');
-    // console.log(this.searchString);
 
-    // this.activeRoute.queryParamMap.subscribe((data) => {
-    //   this.searchString = data.get('search');
 
-    //   if(this.searchString === undefined || this.searchString === '' || this.searchString === null){
-    //     this.coursesService.getAllcourses().subscribe((data: Course[]) => {
-    //       this.AllCourses = data;
-    //     });
+  // ******* resolve route guard - 
+  // Above first in ngOnInit if/else, after route we had normal courses retrival using subscribe to activated route for getting the route params
+  // and subscribing the web service of courses.
+  // Here we are using resolve route guard that already loads the data before routing
 
-    //     this.AllCourses = this.activeRoute.snapshot.data['courses'];
-    //   }else{
-    //     this.AllCourses = this.coursesService.courses
-    //       .filter(x => x.title.toLowerCase()
-    //       .includes(this.searchString.toLowerCase()));
-    //   }
-    // })
+    this.AllCourses = this.activeRoute.snapshot.data['courses'];
+    this.displayCourses = JSON.parse(JSON.stringify(this.AllCourses));  
 
   }
 
   //filter search result from source based on route query params value 
-  populateCoursesFromSearch(searchQuery: string) {
-    this.sharedService.searchCourses(searchQuery).subscribe((filteredCourses) => {
-      this.displayCourses = filteredCourses;  
-    });
-  }
-  //this is moved to shared service
-  // getAllCourses(searchQuery: string): Observable<Course[]> {
-  //   return this.coursesService.getAllcourses().pipe(
-  //     map((courses:Course[]) => courses.filter(course => course.title.toLowerCase().includes(searchQuery.toLowerCase())))
-  //   );
+  // populateCoursesFromSearch(searchQuery: string) {
+  //   this.sharedService.searchCourses(searchQuery).subscribe((filteredCourses) => {
+  //     this.displayCourses = filteredCourses;  
+  //   });
   // }
-
-
 
 
   //When redirected from home component search bander, we receive search query here -
@@ -131,7 +117,6 @@ export class CoursesComponent implements OnInit {
   // goToPopular(): void {
   //   this.router.navigate()
   // }
-
 
 
 }
