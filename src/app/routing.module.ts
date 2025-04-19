@@ -37,7 +37,8 @@ const routes: Routes = [
         // 4.route guard for new versions (14+)
         // { path: 'Checkout', component: CheckoutComponent, canActivate: [() => {return true}]}//hardcoded
         // { path: 'Checkout', component: CheckoutComponent, canActivate: [canActivate]}//new way ..canActivateFn in authGuard.ts
-        { path: 'Checkout', component: CheckoutComponent}
+        // { path: 'Checkout', component: CheckoutComponent, data: {name: 'Test Course', price: '350'}} //ex. passing static hardcoded data to route
+        { path: 'Checkout', component: CheckoutComponent, data: {}} //ex. passing dynamically
       ]},
       // If we want to protect all child members of a parent route, we can use canActivateChild, that returns boolean as same above
   

@@ -25,7 +25,7 @@ export class CourseService{
         return new Observable<CourseType[]>((sub) => {
             setTimeout(() => {
                 sub.next(this.courses);
-            }, 5000)
+            }, 2000)
         })
     }
 }
