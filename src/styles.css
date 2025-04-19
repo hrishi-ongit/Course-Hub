@@ -20,6 +20,7 @@ a{
 }
 .active{
     font-size: 18px;
+    color: #5435a2;
     font-weight: bold;
 }
 
@@ -31,7 +32,8 @@ a{
   }
   
   .nav-link.active {
-    color: #ff5100;
+    /* color: #ff5100; */
+    color: #5435a2;
   }
   
   .nav-link::after {
@@ -41,7 +43,8 @@ a{
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #ff5100;
+    /* background-color: #ff5100; */
+    background-color: #5435a2;
     transition: width 0.5s ease, left 0.5s ease;
   }
   
@@ -50,29 +53,29 @@ a{
     left: 0;
   }
 
-    .loader {
-        width: 48px;
-        height: 48px;
-        border: 5px solid #FFF;
-        border-bottom-color: #FF3D00;
-        border-radius: 50%;
-        display: inline-block;
-        box-sizing: border-box;
-        animation: rotation 1s linear infinite;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #5435a2;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
 
-    @keyframes rotation {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    } 
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
 
 .overlay{
     left: 0;

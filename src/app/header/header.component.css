@@ -3,7 +3,12 @@ a{
     margin: 0px 10px;
 }
 h2{
-    color: #FF5733;
+    color: #5435a2;
+}
+.course-title {
+    font-weight:900;
+    font-size: x-large;
+    font-family: serif;
 }
 .page-header{
     width: 100%;

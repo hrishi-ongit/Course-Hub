@@ -24,7 +24,7 @@
     height: 38px;
     border: none;
     margin-left: 5px;
-    background-color: #ba2a0a;
+    background-color: #5435a2;
     color: white;
 }
 h1, p{
@@ -54,6 +54,6 @@ h1, p{
 }
   
 .banner-footer a:hover {
-    font-size: 1.3em; /* Increase font size on hover (adjust as needed) */
-    /* you can also add other styles here like color change, etc */
+    font-size: 1.3em; 
+    color: #5435a2;
 }
