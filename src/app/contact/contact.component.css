@@ -40,7 +40,8 @@ p{
   }
   
   input[type=submit] {
-    background-color: #FF5733;
+    background-color: #5435a2;
+    /* background-color: #FF5733; */
     color: white;
     padding: 12px 20px;
     border: none;
