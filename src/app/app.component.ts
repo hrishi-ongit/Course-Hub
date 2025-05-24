@@ -17,20 +17,13 @@ export class AppComponent {
   ngOnInit(){
     this.router.events.subscribe((routerEvent: Event) => {
       if(routerEvent instanceof NavigationStart) this.showLoader = true;
-      if(routerEvent instanceof NavigationEnd) this.showLoader = false;
+      if(routerEvent instanceof NavigationEnd ||
+        routerEvent instanceof NavigationCancel ||
+        routerEvent instanceof NavigationError) this.showLoader = false;
     })
     // this.router.events.subscribe((routerEvent: Event) => {
     //   if(routerEvent instanceof NavigationStart){
     //     this.showLoader = true;
     //   }
-
-    //   if(routerEvent instanceof NavigationEnd 
-    //     || routerEvent instanceof NavigationCancel
-    //     || routerEvent instanceof NavigationError
-    //     )
-    //   {
-    //     this.showLoader = false;
-    //   }
-    // })
   }
 }

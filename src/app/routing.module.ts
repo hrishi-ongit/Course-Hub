@@ -22,8 +22,8 @@ const routes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "About", component: AboutComponent }, 
   { path: "Contact", component: ContactComponent},
-  // { path: "Courses", component: CoursesComponent, resolve: {courses: AuthGuardService}},//created a property courses, to which the resolve interface method of AuthGuardSerivce will assign the course response before navigation 
-  { path: "Courses", component: CoursesComponent, resolve: {courses: resolve} }, // new..using function 
+  // { path: "Courses", component: CoursesComponent, resolve: {courses: AuthGuardService}},//Passing data(courses) with navigation, //created a property courses, to which the resolve interface method of AuthGuardSerivce will assign the course response before navigation 
+  { path: "Courses", component: CoursesComponent, canActivate: [canActivate], resolve: {courses: resolve} }, // new..using function 
 
       //1. { path : 'Courses/Course/:id', component: CourseDetailComponent}, 
       //2. //below is another way i.e using child route 
@@ -44,7 +44,7 @@ const routes: Routes = [
   
   { path : 'Home/Courses/Course/:id', component: CourseDetailComponent},
   // { path : 'Courses/Course/:id/:name'},
-  { path: "Services", component: ServicesComponent},
+  { path: "Services", component: ServicesComponent, canActivate: [canActivate]},
   // {
   //   path: "contact",
   //   component: ContactComponent,

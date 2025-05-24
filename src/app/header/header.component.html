@@ -46,8 +46,9 @@
         <a class="nav-link" [routerLink]="'About'" [routerLinkActive]="'active'">ABOUT</a>
       </div>
       <div class="page-header-login-logout">
-        <a routerLink="/Login">LOGIN</a>
-        <a routerLink="/Login" [queryParams]="{logout: true}">LOGOUT</a>
+        <a *ngIf="!isLoggedIn" routerLink="/Login">LOGIN</a>
+        <a *ngIf="!isLoggedIn">SIGN UP</a>
+        <a *ngIf="isLoggedIn" routerLink="/Login" [queryParams]="{logout: true}">LOGOUT</a>
       </div>
     </div>
 
